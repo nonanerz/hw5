@@ -3,33 +3,50 @@ document.querySelector('form').addEventListener('submit', function(event)
     event.preventDefault();
 
     var value = document.getElementById('todo-input').value;
-    var child = document.createElement("LI")
-        child.innerHTML = '<span class="done">x -</span> <span class="remove">remove</span>'
+    var child = document.createElement('LI')
+        child.classList.add('collection-item')
+        child.innerHTML = '<i class="done material-icons">check</i><i class="remove material-icons">delete_forever</i>'
 
-    child.appendChild(document.createTextNode(value));
-    document.querySelector('ul').appendChild(child);
-    document.getElementById('todo-input').value = ''
+    if (value.trim() !== '') {
+        child.appendChild(document.createTextNode(value));
+        document.querySelector('ul').appendChild(child);
+        document.getElementById('todo-input').value = ''
+    }
 
 }, false);
 
 var counter = 0
+var counterBlock = document.getElementById('counter')
+
+counterBlock.innerText = counter
 
 document.querySelector('ul').addEventListener('click', function(event)
 {
-    if (event.target.getAttribute('class') === 'done') {
+
+    if (event.target.classList.contains('done')) {
         var li = event.target.parentNode
-        if (li.hasAttributes("style", "text-decoration:line-through")) {
-            document.getElementById('counter').innerText = --counter
-            li.removeAttribute("style", "text-decoration:line-through")
+
+        if (li.classList.contains('completed')) {
+            event.target.innerText = 'done'
+
+            counterBlock.innerText = --counter
+            li.classList.remove('completed')
         } else {
-            document.getElementById('counter').innerText = ++counter
-            li.setAttribute("style", "text-decoration:line-through")
+            event.target.innerText = 'undo'
+
+            counterBlock.innerText = ++counter
+            li.classList.add('completed')
         }
     }
 
-    if (event.target.getAttribute('class') === 'remove') {
+    if (event.target.classList.contains('remove')) {
         var ul = document.querySelector('ul')
-        ul.removeChild(event.target.parentNode)
+        var elementToRemove = event.target.parentNode
+
+        if (elementToRemove.classList.contains('completed')) {
+            counterBlock.innerText = --counter
+        }
+        ul.removeChild(elementToRemove)
     }
 
 }, false);
