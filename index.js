@@ -16,14 +16,20 @@ var counter = 0
 
 document.querySelector('ul').addEventListener('click', function(event)
 {
-    var li = event.target.parentNode
-    
-    if (li.hasAttributes("style", "text-decoration:line-through")) {
-        document.getElementById('counter').innerText = --counter
-        li.removeAttribute("style", "text-decoration:line-through")
-    } else {
-        document.getElementById('counter').innerText = ++counter
-        li.setAttribute("style", "text-decoration:line-through")
+    if (event.target.getAttribute('class') === 'done') {
+        var li = event.target.parentNode
+        if (li.hasAttributes("style", "text-decoration:line-through")) {
+            document.getElementById('counter').innerText = --counter
+            li.removeAttribute("style", "text-decoration:line-through")
+        } else {
+            document.getElementById('counter').innerText = ++counter
+            li.setAttribute("style", "text-decoration:line-through")
+        }
+    }
+
+    if (event.target.getAttribute('class') === 'remove') {
+        var ul = document.querySelector('ul')
+        ul.removeChild(event.target.parentNode)
     }
 
 }, false);
