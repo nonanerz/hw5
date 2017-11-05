@@ -1,3 +1,8 @@
+var counter = 0
+var counterBlock = document.getElementById('counter')
+
+counterBlock.innerText = counter
+
 document.querySelector('form').addEventListener('submit', function(event)
 {
     event.preventDefault();
@@ -12,14 +17,10 @@ document.querySelector('form').addEventListener('submit', function(event)
         child.getElementsByTagName('p')[0].innerText = value;
         document.querySelector('ul').appendChild(child);
         document.getElementById('todo-input').value = ''
+        counterBlock.innerText = ++counter
     }
 
 }, false);
-
-var counter = 0
-var counterBlock = document.getElementById('counter')
-
-counterBlock.innerText = counter
 
 document.querySelector('ul').addEventListener('click', function(event)
 {
@@ -30,12 +31,12 @@ document.querySelector('ul').addEventListener('click', function(event)
         if (li.classList.contains('completed')) {
             event.target.innerText = 'done'
 
-            counterBlock.innerText = --counter
+            counterBlock.innerText = ++counter
             li.classList.remove('completed')
         } else {
             event.target.innerText = 'undo'
 
-            counterBlock.innerText = ++counter
+            counterBlock.innerText = --counter
             li.classList.add('completed')
         }
     }
@@ -44,7 +45,7 @@ document.querySelector('ul').addEventListener('click', function(event)
         var ul = document.querySelector('ul')
         var elementToRemove = event.target.parentNode
 
-        if (elementToRemove.classList.contains('completed')) {
+        if (elementToRemove.classList.contains('completed') === false) {
             counterBlock.innerText = --counter
         }
         ul.removeChild(elementToRemove)
