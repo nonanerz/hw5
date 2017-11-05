@@ -5,19 +5,29 @@ main {
   width: 500px;
   margin: 0 auto; }
 
-h5 {
-  float: right; }
-
-li {
+li.collection-item {
   margin-bottom: 9px !important;
   margin-left: 4px !important;
-  text-align: center; }
-  li i.done {
+  text-align: center;
+  border-bottom: none; }
+  li.collection-item i.done {
     float: right;
     color: #1f7921; }
-  li i.remove {
+  li.collection-item i.remove {
     float: right;
     color: #b90000; }
+
+.hidden {
+  display: none; }
+
+.filter-active {
+  border: 1px solid #c8c8c8;
+  border-radius: 9px;
+  background-color: #ECEFEA !important;
+  padding: 2px 20px !important; }
+
+.filter {
+  display: inline-block; }
 
 .collection {
   border: 0 !important; }

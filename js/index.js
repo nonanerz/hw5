@@ -5,6 +5,7 @@ document.querySelector('form').addEventListener('submit', function(event)
     var value = document.getElementById('todo-input').value;
     var child = document.createElement('LI')
         child.classList.add('collection-item')
+        child.classList.add('todo')
         child.classList.add('z-depth-3')
         child.innerHTML = '<i class="remove material-icons pulse">delete_forever</i><i class="done material-icons">check</i><p class="flow-text"></p>'
     if (value.trim() !== '') {
@@ -49,12 +50,40 @@ document.querySelector('ul').addEventListener('click', function(event)
         ul.removeChild(elementToRemove)
     }
 
+    if (event.target.classList.contains('filter')) {
+        document.getElementsByClassName('filter-active')[0].classList.remove('filter-active')
+        event.target.classList.add('filter-active')
+
+        var todo = document.querySelectorAll('.todo')
+        switch (event.target.getAttribute('id')) {
+            case 'filter_all':
+                document.querySelectorAll('.hidden').forEach(function (elem) {
+                    elem.classList.remove('hidden')
+                });
+                break;
+            case 'filter_active':
+                todo.forEach(function (elem) {
+                    elem.classList.remove('hidden')
+                });
+                document.querySelectorAll('.completed').forEach(function (elem) {
+                    elem.classList.add('hidden')
+                });
+                break;
+            case 'completed':
+                document.querySelectorAll('.completed').forEach(function (elem) {
+                    elem.classList.remove('hidden')
+                });
+                todo.forEach(function (elem) {
+                    if (elem.classList.contains('completed') === false) {
+                        elem.classList.add('hidden')
+                    }
+                });
+
+                break;
+        }
+    }
+
 }, false);
 
-document.querySelector('ul').addEventListener('DOMNodeInserted', function()
-{
-    Materialize.showStaggeredList('.collection')
-
-}, false);
 
 
