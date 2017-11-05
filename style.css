@@ -1,0 +1,29 @@
+.completed {
+  text-decoration: line-through; }
+
+main {
+  width: 500px;
+  margin: 0 auto; }
+
+h5 {
+  float: right; }
+
+li {
+  margin-bottom: 9px !important;
+  margin-left: 4px !important;
+  text-align: center; }
+  li i.done {
+    float: right;
+    color: #1f7921; }
+  li i.remove {
+    float: right;
+    color: #b90000; }
+
+.collection {
+  border: 0 !important; }
+
+#tasks_list {
+  height: auto;
+  min-height: 200px; }
+
+/*# sourceMappingURL=style.css.map */

@@ -51,4 +51,10 @@ document.querySelector('ul').addEventListener('click', function(event)
 
 }, false);
 
+document.querySelector('ul').addEventListener('DOMNodeInserted', function()
+{
+    Materialize.showStaggeredList('.collection')
+
+}, false);
+
 
