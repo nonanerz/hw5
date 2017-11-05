@@ -6,7 +6,7 @@ document.querySelector('form').addEventListener('submit', function(event)
     var child = document.createElement('LI')
         child.classList.add('collection-item')
         child.classList.add('z-depth-3')
-        child.innerHTML = '<i class="done material-icons">check</i><i class="remove material-icons">delete_forever</i><p class="flow-text"></p>'
+        child.innerHTML = '<i class="remove material-icons pulse">delete_forever</i><i class="done material-icons">check</i><p class="flow-text"></p>'
     if (value.trim() !== '') {
         child.getElementsByTagName('p')[0].innerText = value;
         document.querySelector('ul').appendChild(child);

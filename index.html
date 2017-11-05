@@ -11,14 +11,15 @@
 <body>
 
 <div class="container">
-    <h3>Todo list</h3>
-    <h4>Completed tasks: <span id="counter"></span></h4>
 
     <div class="row">
-        <form class="col s6 offset-s3">
-            <input id="todo-input" placeholder="TODO item" type="text" class="validate input-field off">
-            <button class="waves-effect waves-light btn" type="submit">SAVE</button>
-        </form>
+        <h5 class="col s4">Completed tasks: <span id="counter"></span></h5>
+        <div class="col s7">
+            <form>
+                <input id="todo-input" placeholder="TODO item" type="text" class="validate input-field off">
+                <button class="waves-effect waves-light btn" type="submit">SAVE</button>
+            </form>
+        </div>
     </div>
 
     <section id="tasks_list" class="z-depth-5">

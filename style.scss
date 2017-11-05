@@ -1,29 +1,25 @@
 .completed {
   text-decoration: line-through;
-  font-size: 20px;
 }
-header {
-  padding: 30px;
-}
-
 
 li {
   margin-bottom: 9px !important;
+  margin-left: 4px !important;
   text-align: center;
 
-    i {
-      float: right;
-    }
+  i.done {
+    float: right;
+    color: #1f7921;
+  }
+
+  i.remove {
+    float: right;
+    color: #b90000;
+  }
 }
 
 .collection {
   border: 0 !important
-}
-
-
-form {
-  display: inline-block;
-  text-align: center;
 }
 
 #tasks_list {
