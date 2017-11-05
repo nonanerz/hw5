@@ -11,10 +11,10 @@
 </head>
 <body>
 
-    <main>
+    <main class="container">
 
         <div class="row">
-            <div>
+            <div class="col s10 offset-s1">
                 <form class="input-field">
                     <div class="row">
                         <label for="todo-input">What is your main focus for today?</label>
@@ -25,14 +25,16 @@
             </div>
         </div>
 
-        <section id="tasks_list" class="z-depth-5">
-            <ul class="collection">
-                <li class="collection-item filter filter-active" id="filter_all">All</li>
-                <li class="collection-item filter" id="filter_active">Active</li>
-                <li class="collection-item filter" id="completed">Completed</li>
-                <li class="collection-item" style="display: inline-block;">Completed tasks: <span id="counter"></span></li>
-            </ul>
-        </section>
+        <div class="row">
+            <section id="tasks_list" class="z-depth-5 col s12 center-align">
+                <ul class="collection col s12">
+                    <li class="collection-item filter filter-active" id="filter_all">All</li>
+                    <li class="collection-item filter" id="filter_active">Active</li>
+                    <li class="collection-item filter" id="completed">Completed</li>
+                    <li class="collection-item" style="display: inline-block;">Completed tasks: <span id="counter"></span></li>
+                </ul>
+            </section>
+        </div>
 
     </main>
 
