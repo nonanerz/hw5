@@ -20,6 +20,10 @@ document.querySelector('form').addEventListener('submit', function(event)
         counterBlock.innerText = ++counter
     }
 
+    if (document.getElementById('completed').classList.contains('filter-active')) {
+        child.classList.add('hidden')
+    }
+
 }, false);
 
 document.querySelector('ul').addEventListener('click', function(event)
@@ -33,11 +37,20 @@ document.querySelector('ul').addEventListener('click', function(event)
 
             counterBlock.innerText = ++counter
             li.classList.remove('completed')
+
+            if (document.getElementById('completed').classList.contains('filter-active')) {
+                li.classList.add('hidden')
+            }
+
         } else {
             event.target.innerText = 'undo'
 
             counterBlock.innerText = --counter
             li.classList.add('completed')
+
+            if (document.getElementById('filter_active').classList.contains('filter-active')) {
+                li.classList.add('hidden')
+            }
         }
     }
 
