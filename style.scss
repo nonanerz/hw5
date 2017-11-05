@@ -2,8 +2,31 @@
   text-decoration: line-through;
   font-size: 20px;
 }
+header {
+  padding: 30px;
+}
 
-.container {
-  max-width: 600px;
-  margin: 0 auto;
+
+li {
+  margin-bottom: 9px !important;
+  text-align: center;
+
+    i {
+      float: right;
+    }
+}
+
+.collection {
+  border: 0 !important
+}
+
+
+form {
+  display: inline-block;
+  text-align: center;
+}
+
+#tasks_list {
+  height: auto;
+  min-height: 200px;
 }

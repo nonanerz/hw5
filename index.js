@@ -5,10 +5,10 @@ document.querySelector('form').addEventListener('submit', function(event)
     var value = document.getElementById('todo-input').value;
     var child = document.createElement('LI')
         child.classList.add('collection-item')
-        child.innerHTML = '<i class="done material-icons">check</i><i class="remove material-icons">delete_forever</i>'
-
+        child.classList.add('z-depth-3')
+        child.innerHTML = '<i class="done material-icons">check</i><i class="remove material-icons">delete_forever</i><p class="flow-text"></p>'
     if (value.trim() !== '') {
-        child.appendChild(document.createTextNode(value));
+        child.getElementsByTagName('p')[0].innerText = value;
         document.querySelector('ul').appendChild(child);
         document.getElementById('todo-input').value = ''
     }
